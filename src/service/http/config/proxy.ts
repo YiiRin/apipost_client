@@ -6,5 +6,6 @@ const proxyInstance = axios.create({
   headers: {
     ...proxyConstants.PROXY_BASE_HEADERS,
   },
-  
 })
+
+export default proxyInstance
