@@ -9,6 +9,7 @@ export const Container = styled.div`
   display: flex;
   flex-flow: column nowrap;
   width: 100vw;
+  min-width: 1480px;
   height: 100vh;
   color: ${color};
 `

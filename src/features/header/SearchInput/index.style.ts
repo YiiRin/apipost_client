@@ -22,8 +22,10 @@ const iconHoverColor = theme('mode', {
 })
 
 export const Container = styled.div`
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
+  justify-content: center;
 `
 
 export const InputContainer = styled.div`

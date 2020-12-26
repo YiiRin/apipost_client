@@ -16,6 +16,7 @@ export const Container = styled.h1`
   height: 50px;
   width: 120px;
   line-height: 50px;
+  flex: 0 0 auto;
   display: flex;
   justify-content: center;
 
