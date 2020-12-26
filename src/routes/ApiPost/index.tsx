@@ -1,16 +1,18 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { ThemeProvider } from 'styled-components'
-import { themeModeSelector } from './selector'
+import { Container } from './index.style'
+import Header from 'layouts/Header'
+import Main from 'layouts/Main'
+import Footer from 'layouts/Footer'
 
 type Props = {}
 
 const ApiPost: React.FC<Readonly<Props>> = (props) => {
-  const themeMode = useSelector(themeModeSelector)
   return (
-    <>
-      <ThemeProvider theme={themeMode}>App</ThemeProvider>
-    </>
+    <Container>
+      <Header />
+      <Main />
+      <Footer />
+    </Container>
   )
 }
 

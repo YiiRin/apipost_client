@@ -1,9 +1,3 @@
-/**
- * Copyright © 2020 Iliya_Rin. All rights reserved.
- *
- * @author Iliya_Rin
- * @since  2020-12-22 16:55
- */
 import styled from 'styled-components'
 
 interface StyledButtonProps {

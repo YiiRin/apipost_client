@@ -83,6 +83,5 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
-  },
-  "proxy": "http://localhost:3332"
+  }
 }

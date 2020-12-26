@@ -6,7 +6,7 @@
  */
 import { FC } from 'react'
 import { ButtonProps } from './Button'
-import { StyledButton, StyledAnchor, LinkContainer } from './style'
+import { StyledButton, StyledAnchor, LinkContainer } from './index.style'
 
 const Button: FC<Readonly<ButtonProps>> = (props) => {
   const {
@@ -34,7 +34,7 @@ const Button: FC<Readonly<ButtonProps>> = (props) => {
         onClick={onClick}
         {...rest}
       >
-        {icon} <span>{children}</span>
+        {icon} {children}
       </StyledButton>
     )
 
