@@ -11,5 +11,6 @@ export const Container = styled.div`
   width: 100vw;
   min-width: 1480px;
   height: 100vh;
+  /* min-height: 600px; */
   color: ${color};
 `

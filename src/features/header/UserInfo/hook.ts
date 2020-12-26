@@ -1,19 +1,39 @@
-import {useState} from 'react'
+import { useRef, useState } from 'react'
 
-export const useTitle = () => {
+export const useComponentShow = () => {
   const [isShow, setIsShow] = useState(false)
 
-  const showTitle = () => {
+  const show = () => {
     setIsShow(true)
   }
 
-  const hideTitle = () => {
+  const hide = () => {
     setIsShow(false)
   }
 
   return {
     isShow,
-    showTitle,
-    hideTitle
+    show,
+    hide,
+  }
+}
+
+export const usePortraitDropdown = () => {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [isShow, setIsShow] = useState(false)
+
+  const showPortraitDropdown = () => {
+    setIsShow(true)
+  }
+
+  const hidePortraitDropdown = () => {
+    setIsShow(false)
+  }
+
+  return {
+    isShow,
+    showPortraitDropdown,
+    hidePortraitDropdown,
+    containerRef,
   }
 }

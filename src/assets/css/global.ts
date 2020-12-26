@@ -17,4 +17,9 @@ export const GlobalStyle = createGlobalStyle`
              url(${AlexaStdSVG}) format('svg');
     }
 
+    html {
+      /* overflow-x: hidden; */
+      /* overflow-y: scroll; */
+    }
+
 `

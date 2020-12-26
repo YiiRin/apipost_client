@@ -47,6 +47,11 @@ interface BaseProps {
    * the icon before text
    */
   icon?: React.ReactNode
+
+  /**
+   * the background color in hover
+   */
+  hoverBgColor?: string
 }
 
 type NativeButtonAttributes = AnchorHTMLAttributes<HTMLElement> & BaseProps

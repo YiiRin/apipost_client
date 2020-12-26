@@ -3,6 +3,7 @@ import styled from 'styled-components'
 interface StyledButtonProps {
   block?: boolean
   disabled?: boolean
+  hoverBgColor?: string
 }
 
 /**
@@ -32,6 +33,10 @@ const BaseButton = styled(ResetButton)<StyledButtonProps>`
 
   text-align: center;
   line-height: 1;
+
+  &:hover {
+    background-color: ${({ hoverBgColor }) => hoverBgColor || 'transparent'};
+  }
 `
 
 export const StyledButton = styled(BaseButton)`
@@ -42,7 +47,9 @@ export const StyledButton = styled(BaseButton)`
 `
 
 export const StyledAnchor = styled(BaseButton)`
-
+  i {
+    margin-right: 0.25em;
+  }
 `
 export const LinkContainer = styled.a`
   display: inline-block;

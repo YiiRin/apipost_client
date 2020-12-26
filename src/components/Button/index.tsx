@@ -55,7 +55,8 @@ const Button: FC<Readonly<ButtonProps>> = (props) => {
       onClick={handleDisabledLink(disabled)}
       {...rest}
     >
-      <span>{children}</span>
+      {icon}
+      {children}
     </StyledAnchor>
   )
 }
