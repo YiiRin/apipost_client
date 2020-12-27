@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchDropdown from '../SearchDropdown'
+import SearchDropdown from './SearchDropdown'
 import { useDropdown } from './hook'
 import { Container, Icon, Input, InputContainer } from './index.style'
 type Props = {}

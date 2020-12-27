@@ -4,7 +4,7 @@ import { Container, Img, InfoContainer, PortraitContainer } from './index.style'
 import portrait from 'assets/imgs/portrait.png'
 import Title from 'components/Title'
 import { useComponentShow } from './hook'
-import PortraitDropdown from '../PortraitDropdown'
+import PortraitDropdown from './PortraitDropdown'
 
 type Props = {}
 
