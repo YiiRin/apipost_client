@@ -7,25 +7,17 @@ import {
   InfoContainer,
   Username,
   Email,
-  Line,
   Nav,
 } from './index.style'
 import portrait from 'assets/imgs/portrait.png'
+import Line from 'components/Line'
 
 type Props = {
   visible: boolean
 }
 
-const btnStyle = {
-  fontSize: '12px',
-  textAlign: 'left',
-  padding: '.75em 0 .75em 20px',
-  margin: '0',
-
-} as CSSProperties
-
 const PortraitDropdown: React.FC<Readonly<Props>> = (props) => {
-  const {visible} = props
+  const { visible } = props
 
   return (
     <Container visible={visible}>
@@ -38,23 +30,25 @@ const PortraitDropdown: React.FC<Readonly<Props>> = (props) => {
           <Email>430252495@qq.com</Email>
         </InfoContainer>
       </UserInfoContainer>
-      <Line />
+      <Line width={'180px'} className={'line'} variant="dropdown" />
       <Nav>
         <div>
           <Button
             btnType="link"
+            className={'link'}
             block={true}
-            style={btnStyle}
             icon={<i className="fa fa-id-card-o" aria-hidden="true"></i>}
+            href="//www.iliya.org.cn:7340"
+            target={'_blank'}
           >
             完善个人资料
           </Button>
         </div>
         <div>
           <Button
+            className={'link'}
             btnType="link"
             block={true}
-            style={btnStyle}
             icon={<i className="fa fa-key" aria-hidden="true"></i>}
           >
             修改密码
@@ -62,9 +56,9 @@ const PortraitDropdown: React.FC<Readonly<Props>> = (props) => {
         </div>
         <div>
           <Button
+            className={'link'}
             btnType="link"
             block={true}
-            style={btnStyle}
             icon={<i className="fa fa-sign-out" aria-hidden="true"></i>}
           >
             退出登录

@@ -19,13 +19,6 @@ type Props = {
   onMouseLeave?: MouseEventHandler
 }
 
-const btnStyle = {
-  padding: '0 1em',
-  margin: '0',
-  marginLeft: '8px',
-  height: '100%',
-} as CSSProperties
-
 const SearchDropdown: React.FC<Readonly<Props>> = (props) => {
   const { containerRef, changeActive } = useChangeActive()
   const { visible, onMouseEnter, onMouseLeave } = props
@@ -36,10 +29,10 @@ const SearchDropdown: React.FC<Readonly<Props>> = (props) => {
       onMouseLeave={onMouseLeave}
     >
       <OptionContainer onClick={changeActive} ref={containerRef}>
-        <Button style={btnStyle}>项目</Button>
-        <Button style={btnStyle}>接口</Button>
-        <Button style={btnStyle}>帮助文档</Button>
-        <Button style={btnStyle}>博客</Button>
+        <Button className={'link'}>项目</Button>
+        <Button className={'link'}>接口</Button>
+        <Button className={'link'}>帮助文档</Button>
+        <Button className={'link'}>博客</Button>
       </OptionContainer>
       <div className="list"></div>
     </Container>

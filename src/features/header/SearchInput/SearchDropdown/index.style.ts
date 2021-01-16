@@ -21,14 +21,14 @@ const activeOptionBgColor = theme('mode', {
   dark: '#303030',
 })
 
-export const Container = styled.div<{visible: boolean}>`
+export const Container = styled.div<{ visible: boolean }>`
   position: absolute;
   z-index: 10;
-  display: ${({visible}) => visible ? 'block' : 'none'};
+  display: ${({ visible }) => (visible ? 'block' : 'none')};
   width: 100%;
   height: 280px;
   border: 1px solid ${borderColor};
-  box-shadow: 0 0 4px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   .list {
     background-color: ${listBgColor};
   }
@@ -38,7 +38,14 @@ export const OptionContainer = styled.div`
   height: 28px;
   padding-top: 2px;
   background-color: ${optionContainerBgColor};
-  
+
+  .link {
+    padding: 0 1em;
+    margin: 0;
+    margin-left: 8px;
+    height: 100%;
+  }
+
   button.active {
     background-color: ${activeOptionBgColor};
     border-top-left-radius: 4px;

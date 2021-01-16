@@ -24,7 +24,7 @@ interface BaseProps {
   block?: boolean
 
   /**
-   * the button can be click
+   * the button can be clicked
    */
   disabled?: boolean
 
@@ -47,11 +47,6 @@ interface BaseProps {
    * the icon before text
    */
   icon?: React.ReactNode
-
-  /**
-   * the background color in hover
-   */
-  hoverBgColor?: string
 }
 
 type NativeButtonAttributes = AnchorHTMLAttributes<HTMLElement> & BaseProps

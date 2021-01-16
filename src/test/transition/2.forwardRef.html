@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/react-is@17.0.1/umd/react-is.production.min.js"></script>
+    <script src="https://unpkg.com/styled-components/dist/styled-components.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      function FancyInput(props, ref) {
+        const inputRef = React.useRef()
+        React.useImperativeHandle(ref, () => ({
+          focus: () => {
+            inputRef.current.focus()
+          },
+        }))
+        return <input ref={inputRef} />
+      }
+
+      const FancyInputWithRef = React.forwardRef(FancyInput)
+      const App = (props) => {
+        const inputRef = React.useRef(null)
+        return (
+          <div>
+            <button onClick={() => {
+              console.log(inputRef.current)
+            }}>点我一下</button>
+            <FancyInputWithRef ref={inputRef}></FancyInputWithRef>
+          </div>
+        )
+      }
+
+      ReactDOM.render(<App />, document.querySelector('#root'))
+    </script>
+  </body>
+</html>

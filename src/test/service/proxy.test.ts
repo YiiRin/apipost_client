@@ -1,5 +1,5 @@
-import axios  from 'service/http/config/proxy'
-import {RAWURL_PARAM_NAME, TOKEN_HEADER_NAME} from 'service/http/constants/proxy'
+import axios  from 'service/http/config/request'
+import {RAWURL_PARAM_NAME, TOKEN_HEADER_NAME} from 'service/http/constants'
 import md5 from 'blueimp-md5'
 
 async function main() {

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-interface StyledButtonProps {
+interface Props {
   block?: boolean
   disabled?: boolean
   hoverBgColor?: string
@@ -20,23 +20,27 @@ const ResetButton = styled.button`
   text-decoration: none;
 `
 
+const ResetLink = styled.a`
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+`
+
 /**
  * The base style of button and link
  */
-const BaseButton = styled(ResetButton)<StyledButtonProps>`
+const BaseButton = styled(ResetButton)<Props>`
   display: ${(props) => (props.block ? 'block' : 'inline-block')};
   // box
-  padding: 0.5em 1.25em;
-  margin: 2px 4px;
+  padding: 0.5em 1.25em 0.65em;
+  margin: 0 6px;
   border: 1px solid transparent;
   border-radius: 0.25em;
 
   text-align: center;
   line-height: 1;
-
-  &:hover {
-    background-color: ${({ hoverBgColor }) => hoverBgColor || 'transparent'};
-  }
 `
 
 export const StyledButton = styled(BaseButton)`
@@ -46,9 +50,12 @@ export const StyledButton = styled(BaseButton)`
   }
 `
 
-export const StyledAnchor = styled(BaseButton)`
+export const StyledAnchor = styled(ResetLink)<Props>`
+  display: ${(props) => (props.block ? 'block' : 'inline-block')};
+  text-align: center;
+  line-height: 1;
   i {
-    margin-right: 0.25em;
+    margin-right: 0.375em;
   }
 `
 export const LinkContainer = styled.a`

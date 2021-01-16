@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .my-node-enter {
+        opacity: 0;
+      }
+      .my-node-enter-active {
+        opacity: 1;
+        transition: opacity 200ms;
+      }
+      .my-node-exit {
+        opacity: 1;
+      }
+      .my-node-exit-active {
+        opacity: 0;
+        transition: opacity 200ms;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/react-is@17.0.1/umd/react-is.production.min.js"></script>
+    <script src="https://unpkg.com/styled-components/dist/styled-components.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/react-transition-group/4.4.1/react-transition-group.js"></script>
+
+    <script type="text/babel">
+      const { Transition, CSSTransition } = ReactTransitionGroup
+
+      const duration = 300
+
+      const defaultStyle = {
+        transition: `opacity ${duration}ms ease-in-out`,
+        opacity: 0,
+      }
+
+      const transitionStyles = {
+        entering: { opacity: 1 },
+        entered: { opacity: 1 },
+        exiting: { opacity: 0 },
+        exited: { opacity: 0 },
+      }
+
+      const Fade = (props) => {
+        const { inProp } = props
+
+        return (
+          <Transition in={inProp} timeout={duration}>
+            {(state) => {
+              console.log('state', state)
+              return (
+                <div
+                  style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state],
+                  }}
+                >
+                  I'm a fade Transition
+                </div>
+              )
+            }}
+          </Transition>
+        )
+      }
+
+      // const App = (props) => {
+      //   const [inProp, setInProp] = React.useState(false)
+
+      //   return (
+      //     <div>
+      //       <button onClick={() => setInProp((prev) => !prev)}>点我一下</button>
+      //       <Fade inProp={inProp}></Fade>
+      //     </div>
+      //   )
+      // }
+
+      function App() {
+        const [inProp, setInProp] = React.useState(false)
+        return (
+          <div>
+            <CSSTransition in={inProp} timeout={200} classNames="my-node">
+              <div>{"I'll receive my-node-* classes"}</div>
+            </CSSTransition>
+            <button type="button" onClick={() => setInProp((prev) => !prev)}>
+              Click to Enter
+            </button>
+          </div>
+        )
+      }
+
+      ReactDOM.render(<App />, document.querySelector('#root'))
+    </script>
+  </body>
+</html>

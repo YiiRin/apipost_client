@@ -11,14 +11,14 @@ import { StyledButton, StyledAnchor, LinkContainer } from './index.style'
 const Button: FC<Readonly<ButtonProps>> = (props) => {
   const {
     btnType,
-    target,
     htmlType,
-    block,
-    icon,
     disabled,
     href,
-    children,
+    target,
+    block,
+    icon,
     onClick,
+    children,
     ...rest
   } = props
 
@@ -49,10 +49,11 @@ const Button: FC<Readonly<ButtonProps>> = (props) => {
 
   return (
     <StyledAnchor
-      as="a"
       block={block}
       disabled={disabled}
       onClick={handleDisabledLink(disabled)}
+      href={href}
+      target={target}
       {...rest}
     >
       {icon}

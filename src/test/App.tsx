@@ -1,19 +1,18 @@
+import ModalTest from 'components/Modal/Modal.test'
 import React from 'react'
-import ButtonTest from 'components/Button/Button.test'
-import './service/proxy.test'
-import ToggleButtonTest from 'components/ToggleButton/index.test'
-import Input from 'components/Input'
+import { useSelector } from 'react-redux'
+import { themeModeSelector } from 'routes/ApiPost/selector'
+import { ThemeProvider } from 'styled-components'
+// import './service/proxy.test'
 
-const App: React.FC<{}> = (props) => {
+const App: React.FC<{}> = () => {
+  const themeMode = useSelector(themeModeSelector)
 
-    return (
-      <>
-        <ButtonTest />
-        <ToggleButtonTest />
-        <Input width={'300px'}/>
-      </>
-
-    )
+  return (
+    <ThemeProvider theme={themeMode}>
+      <ModalTest />
+    </ThemeProvider>
+  )
 }
 
 export default App
