@@ -59,7 +59,6 @@ export const ModalContent = styled.div<ModalContentProps>`
   background-clip: padding-box;
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  /* pointer-events: auto; */
 
   &.modal {
     top: 0;

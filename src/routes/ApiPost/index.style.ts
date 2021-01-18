@@ -5,12 +5,17 @@ const color = theme('mode', {
   dark: '#ADB5BD',
 })
 
+const bgColor = theme('mode', {
+  light: '#7e7e7e',
+  dark: '#141414',
+})
+
 export const Container = styled.div`
   display: flex;
   flex-flow: column nowrap;
   width: 100vw;
   min-width: 1480px;
   height: 100vh;
-  /* min-height: 600px; */
   color: ${color};
+  background-color: ${bgColor};
 `

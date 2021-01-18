@@ -5,6 +5,7 @@ import { BaseAuth } from '../api/auth'
 import { refreshPath } from '../constants'
 import { instance } from './request'
 import PubSub from 'pubsub-js'
+import { ResponseSuccess } from '../api/type'
 
 // 标志是否已经有请求去自动刷新请求了
 let isRefreshing = true
@@ -44,7 +45,7 @@ export const checkStatus = (
   return response
 }
 
-const refreshToken = async (reToken: string) => {
+export const refreshToken = async (reToken: string) => {
   let refreshFlag = false
   // 刷新的 url
   const url = '/auth/refresh'
@@ -54,13 +55,15 @@ const refreshToken = async (reToken: string) => {
   const { EXPIRE_TIME, TOKEN, USER_INFO } = keys.login
 
   try {
-    const {
-      data: { access_token, info, timestamp, expires_in },
-    } = await instance.get<BaseAuth>(url, {
+    const result = await instance.get<ResponseSuccess<BaseAuth>>(url, {
       headers: {
         [headerName]: reToken,
       },
     })
+
+    const { access_token, info, timestamp, expires_in } = result.data.data!
+
+    console.log(access_token, info)
 
     localStore.set(TOKEN, access_token)
     localStore.set(EXPIRE_TIME, timestamp + expires_in)

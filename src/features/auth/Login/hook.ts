@@ -11,6 +11,7 @@ import { saveAuthData } from '../auth'
 import { localStore } from 'service/utils/localStore'
 import { encrypt, decrypt } from 'service/utils/base64'
 import keys from 'service/local/localsotrage-key'
+import Message from 'components/Message'
 
 /**
  * 登录表单
@@ -101,9 +102,11 @@ export const useLoginModal = (
     const result = await authApis.login(account, password)
 
     if (isResponseError(result)) {
-      // 登录失败，弹出提示框
-      // TODO:
-      console.log('login error')
+      Message.pop({
+        type: 'error',
+        message: result.message,
+        closable: true,
+      })
       return
     }
     // 3. 登录成功，切换登录状态，保存用户数据，然后跳转到应用主页

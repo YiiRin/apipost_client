@@ -6,6 +6,23 @@ const color = theme('mode', {
   dark: '#adb5bd',
 })
 
+const bgColor = theme('mode', {
+  light: '#7e7e7e',
+  dark: '#141414',
+})
+
+export const AppContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100vw;
+  min-width: 1480px;
+  height: 100vh;
+  color: ${color};
+  background-color: ${bgColor};
+`
+
+
+
 const hoverColor = theme('mode', {
   light: '#F1958C',
   dark: '#b55850',

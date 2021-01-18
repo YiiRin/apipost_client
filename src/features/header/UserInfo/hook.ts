@@ -1,4 +1,10 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { User } from 'service/http/api/auth'
+import keys from 'service/local/localsotrage-key'
+import { localStore } from 'service/utils/localStore'
+import { loadUserInfo } from './action'
+import { userInfoSelector } from './selector'
 
 export const useComponentShow = () => {
   const [isShow, setIsShow] = useState(false)
@@ -36,4 +42,20 @@ export const usePortraitDropdown = () => {
     hidePortraitDropdown,
     containerRef,
   }
+}
+
+export const useUserInfo = () => {
+  const userInfo = useSelector(userInfoSelector)
+  const dispatch = useDispatch()
+  // 组件加载时自动加载 localStorage 中的 userInfo
+  useEffect(() => {
+    const { USER_INFO } = keys.login
+    const userInfo = localStore.get(USER_INFO) as User
+
+    if (userInfo) {
+      dispatch(loadUserInfo.success(userInfo))
+    }
+  }, [dispatch])
+
+  return { userInfo }
 }

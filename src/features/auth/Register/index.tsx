@@ -5,7 +5,7 @@ import React from 'react'
 import FormItem from '../FormItem'
 import SmallTip from '../SmallTip'
 import { useRegisterForm, useRegisterModal } from './hook'
-import { Container, StyledForm } from './index.style'
+import { AppContainer, Container, StyledForm } from './index.style'
 import LeftFooter from './LeftFooter'
 
 type Props = {}
@@ -51,7 +51,7 @@ const Register: React.FC<Readonly<Props>> = (props) => {
     </>
   )
   return (
-    <>
+    <AppContainer>
       <Header />
       <Modal
         title="注册 ApiPost 账号"
@@ -181,7 +181,7 @@ const Register: React.FC<Readonly<Props>> = (props) => {
           </StyledForm>
         </Container>
       </Modal>
-    </>
+    </AppContainer>
   )
 }
 

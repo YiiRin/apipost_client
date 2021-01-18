@@ -1,4 +1,5 @@
 import { post } from '../config'
+import { refreshToken } from '../config/refresh_token'
 import { ResponseError, ResponseSuccess } from './type'
 
 const apiUrls = {
@@ -12,6 +13,7 @@ export interface User {
   email: string
   phone: string
   avatar: string
+  name: string
 }
 
 export interface BaseAuth {
@@ -62,4 +64,12 @@ export const register = async (
 /**
  * 注销
  */
-export const logout = async () => post(apiUrls.logout)
+export const logout = async () =>
+  post(apiUrls.logout) as Promise<ResponseSuccess<any> | ResponseError>
+
+/**
+ * 刷新token
+ *
+ * @param token refresh_token
+ */
+export const refresh = async (token: string) => refreshToken(token)

@@ -1,6 +1,6 @@
 import Button from 'components/Button'
 import React from 'react'
-import { CSSTransition, Transition } from 'react-transition-group'
+import { Transition } from 'react-transition-group'
 
 import { useAutoDestroyBody, useMask, useModalAnimation } from './hook'
 import {

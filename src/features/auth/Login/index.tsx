@@ -4,7 +4,7 @@ import React from 'react'
 import FormItem from '../FormItem'
 import SmallTip from '../SmallTip'
 import { useLoginForm, useLoginModal } from './hook'
-import { Container, StyledForm } from './index.style'
+import { AppContainer, Container, StyledForm } from './index.style'
 import LeftFooter from './LeftFooter'
 
 type Props = {}
@@ -46,7 +46,7 @@ const Login: React.FC<Readonly<Props>> = () => {
     </>
   )
   return (
-    <>
+    <AppContainer>
       <Header />
       <Modal
         title={'登录 ApiPost'}
@@ -117,7 +117,7 @@ const Login: React.FC<Readonly<Props>> = () => {
           </StyledForm>
         </Container>
       </Modal>
-    </>
+    </AppContainer>
   )
 }
 

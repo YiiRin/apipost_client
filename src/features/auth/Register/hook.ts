@@ -1,3 +1,4 @@
+import Message from 'components/Message'
 import { RefObject, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -59,9 +60,6 @@ export const useRegisterModal = (
     history.push('/auth/login')
   }
 
-  const handleClose = async () => {
-    close()
-  }
 
   const handleRegister = async () => {
     // 1. 检测是否同意协议，如果不同意协议，直接返回
@@ -94,7 +92,11 @@ export const useRegisterModal = (
     const result = await authApis.register(account, password, name)
 
     if (isResponseError(result)) {
-      // TODO:
+      Message.pop({
+        type: 'error',
+        message: result.message,
+        closable: true,
+      })
       return
     }
 
