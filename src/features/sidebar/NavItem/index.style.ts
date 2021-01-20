@@ -45,5 +45,6 @@ export const Icon = styled.i`
 
 export const Text = styled.span`
   margin-top: 4px;
+  font-size: 13px;
   color: ${textColor};
 `

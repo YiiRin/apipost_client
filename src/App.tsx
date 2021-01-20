@@ -21,12 +21,12 @@ const App: React.FC<Readonly<Props>> = (props) => {
       <GlobalStyle />
       <Suspense fallback={<GlobalLoading />}>
         <Switch>
-          <PrivateRoute exact path="/">
-            <ApiPost />
-          </PrivateRoute>
           <Route path="/auth">
             <Auth />
           </Route>
+          <PrivateRoute path="/">
+            <ApiPost />
+          </PrivateRoute>
         </Switch>
       </Suspense>
     </ThemeProvider>

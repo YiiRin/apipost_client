@@ -15,7 +15,7 @@ const ToggleTheme: React.FC<Readonly<Props>> = (props) => {
           width={22}
           height={12}
         />
-        <span>皮肤/{theme.mode}</span>
+        <span className="text">皮肤/{theme.mode}</span>
       </div>
     </Container>
   )

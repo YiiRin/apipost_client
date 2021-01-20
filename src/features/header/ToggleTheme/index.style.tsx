@@ -10,7 +10,10 @@ export const Container = styled.section`
     margin-top: 10px;
     display: flex;
     align-items: center;
-
+    
+    .text {
+      font-size: 12px
+    }
     section {
       margin-right: 6px;
     }

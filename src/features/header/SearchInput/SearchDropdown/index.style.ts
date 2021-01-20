@@ -29,6 +29,7 @@ export const Container = styled.div<{ visible: boolean }>`
   height: 280px;
   border: 1px solid ${borderColor};
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  font-size: 13px;
   .list {
     background-color: ${listBgColor};
   }

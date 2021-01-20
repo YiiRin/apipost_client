@@ -28,6 +28,7 @@ export const LogoText = styled.span`
   font-size: 28px;
   margin-top: 4px;
   font-family: ${AlEXA_STD_FONT_NAME};
+  font-weight: 500;
 
   &:hover,
   &:hover + span {

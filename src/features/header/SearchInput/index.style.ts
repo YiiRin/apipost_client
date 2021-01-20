@@ -45,7 +45,7 @@ export const Input = styled.input`
   border: none;
   border-radius: 18px;
   padding: 0;
-  padding-left: 32px;
+  padding-left: 36px;
   padding-bottom: 2px;
   color: ${color};
 
@@ -60,11 +60,15 @@ export const Input = styled.input`
   &:focus + i {
     color: ${iconHoverColor};
   }
+
+  &::placeholder {
+    font-size: 13px;
+  }
 `
 
 export const Icon = styled.i`
   position: absolute;
   color: ${color};
   left: 14px;
-  top: 10px;
+  top: 12px;
 `
