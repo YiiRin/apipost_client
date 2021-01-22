@@ -8,15 +8,37 @@ import PortraitDropdown from './PortraitDropdown'
 import { getImgUrl } from 'service/utils/get-img-url'
 import { useSelector } from 'react-redux'
 import { isLoginSelector } from './selector'
+import { useHistory } from 'react-router-dom'
+import { TeamMemberRole } from 'service/http/api/team'
 
 type Props = {}
 
 const UserInfo: React.FC<Readonly<Props>> = (props) => {
+  const history = useHistory()
   const titleShow = useComponentShow()
   const portraitShow = useComponentShow()
-  const { userInfo } = useUserInfo()
+  const { userInfo, currentTeam } = useUserInfo()
   const { name, avatar } = userInfo
   const isLogin = useSelector(isLoginSelector)
+
+  /**
+   * 跳转到对应的 team
+   */
+  const handleJumpToCurrentTeam = () => {
+    if (currentTeam.id) {
+      const teamMember = currentTeam.members.find(
+        (member) => member.userId === userInfo.id
+      )
+
+      if (teamMember) {
+        const type =
+          teamMember.role === TeamMemberRole.ADMINISTRATOR
+            ? 'managed'
+            : 'joined'
+        history.push(`/team/${type}/${currentTeam.id}`, currentTeam.id)
+      }
+    }
+  }
   return (
     <Container>
       {isLogin && (
@@ -26,8 +48,9 @@ const UserInfo: React.FC<Readonly<Props>> = (props) => {
             icon={<i className="fa fa-users" aria-hidden="true"></i>}
             onMouseEnter={titleShow.show}
             onMouseLeave={titleShow.hide}
+            onClick={handleJumpToCurrentTeam}
           >
-            rin的团队
+            {currentTeam.name ? currentTeam.name : '暂无当前团队'}
           </Button>
           <Title
             text={'当前团队'}

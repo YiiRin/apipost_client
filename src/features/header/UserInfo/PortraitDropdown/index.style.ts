@@ -25,10 +25,11 @@ const linkHoverBgColor = theme('mode', {
   light: '#E9EAEB',
   dark: '#404040',
 })
-
+const baseZIndex = 800
 export const Container = styled.div<{ visible: boolean }>`
   position: absolute;
   display: ${({ visible }) => (visible ? 'block' : 'none')};
+  z-index: ${baseZIndex};
   right: 14px;
   top: 45px;
   width: 220px;

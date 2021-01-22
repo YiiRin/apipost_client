@@ -14,6 +14,7 @@ export interface User {
   phone: string
   avatar: string
   name: string
+  currentTeamId: string | null
 }
 
 export interface BaseAuth {

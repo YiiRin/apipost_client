@@ -16,7 +16,6 @@ export const useBaseConfirm = (isShow = false, iDuration = 400) => {
   }, [])
 
   const close = useCallback(() => {
-    console.log('close')
     setVisible(false)
     setInProp(false)
   }, [])

@@ -47,7 +47,7 @@ const leftDistance = (props: any) => {
 }
 
 const duration = (props: any) =>
-  props.duration ? props.duration * 1000 + 'ms' : '200ms'
+  props.duration ? props.duration  + 'ms' : '200ms'
 export const ModalContent = styled.div<ModalContentProps>`
   position: relative;
   /* top: 20vh; */
@@ -226,5 +226,4 @@ export const ModalMask = styled.div`
   height: 100%;
   overflow: hidden;
   background-color: ${maskBg};
-  /* opacity: .1; */
 `

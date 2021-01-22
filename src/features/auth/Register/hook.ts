@@ -1,5 +1,5 @@
 import Message from 'components/Message'
-import { RefObject, useRef, useState } from 'react'
+import { RefObject, useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { useBaseModal } from 'service/hook/auth/useBaseModal'
@@ -51,7 +51,7 @@ export const useRegisterModal = (
   nameRef: RefObject<FormItemRefObject>,
   agreeUserAgreement: boolean
 ) => {
-  const { close, visible, duration, inProp } = useBaseModal(true)
+  const { close, visible, duration, inProp, open } = useBaseModal(false)
   const history = useHistory()
   const dispatch = useDispatch()
 
@@ -59,7 +59,6 @@ export const useRegisterModal = (
     await close()
     history.push('/auth/login')
   }
-
 
   const handleRegister = async () => {
     // 1. 检测是否同意协议，如果不同意协议，直接返回
@@ -114,6 +113,10 @@ export const useRegisterModal = (
     await close()
     history.replace('/')
   }
+
+  useEffect(() => {
+    open()
+  }, [open])
   return {
     handleRegister,
     inProp,

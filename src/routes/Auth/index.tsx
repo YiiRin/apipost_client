@@ -12,7 +12,7 @@ const Auth: React.FC<Readonly<Props>> = (props) => {
   const isLogin = useSelector(isLoginSelector)
   const { state } = useLocation<{ from: string }>()
   if (isLogin) {
-    return <Redirect to={state.from ? state.from : '/'} />
+    return <Redirect to={state && state.from ? state.from : '/'} />
   }
 
   return (

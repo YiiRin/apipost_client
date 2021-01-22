@@ -48,28 +48,41 @@ export const useMask = (
   }
 }
 
+
 /**
- * 模态框动画相关
+ * 动画逻辑
  *
- * @param visible
+ * @param visible 是否可见
+ * @param inProp 动画标志位
  */
-export const useModalAnimation = (visible = false, outerInProp = false) => {
-  const [inProp, setInProp] = useState(false)
-
-  // 组件第一次加载时
+export const useAnimation = (visible: boolean, inProp: boolean) => {
+  const [iVisible, setIVisible] = useState(false)
+  const [iInProp, setIInProp] = useState(false)
   useEffect(() => {
-    setInProp(true)
-  }, [])
+    if (visible === inProp) {
+      // 处理进入的情况 visible === inProp = true
+      if (visible) {
+        // 先显示
+        setIVisible(true)
+      } else {
+        // 先退出动画
+        setIInProp(false)
+      }
+    }
+  }, [visible, inProp])
 
   useEffect(() => {
-    // 当模态框打开时，状态应该是 visible: true, inProp: true
-    // 当模态框关闭时, 状态应该是 inProp: false, wait: duration, visible: false
-    setInProp(visible && outerInProp)
-  }, [visible, outerInProp])
+    if (iVisible) {
+      // 处理进入动画
+      setTimeout(() => setIInProp(true), 10)
+    }
+  }, [iVisible])
 
   return {
-    inProp,
-    setInProp,
+    iVisible,
+    iInProp,
+    setIVisible,
+    setIInProp,
   }
 }
 

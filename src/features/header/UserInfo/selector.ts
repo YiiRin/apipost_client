@@ -5,3 +5,7 @@ export const userInfoSelector = (state: ApiPostStore.RootState) =>
 
 export const isLoginSelector = (state: ApiPostStore.RootState) =>
   state.auth.isLogin
+
+
+export const currentTeamSelector = (state: ApiPostStore.RootState) =>
+  state.user.currentTeam

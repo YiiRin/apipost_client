@@ -9,7 +9,7 @@ export interface ResponseError {
   path: string
 }
 
-export interface ResponseSuccess<T> {
+export interface ResponseSuccess<T = {}> {
   status: number
   msg: string
   data?: T

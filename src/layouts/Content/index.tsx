@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Container } from './index.style'
-const Team = React.lazy(() => import('routes/Team'))
+const Team = React.lazy(() => import('features/content/Team'))
 type Props = {}
 
 const Content: React.FC<Readonly<Props>> = (props) => {

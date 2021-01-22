@@ -2,7 +2,7 @@ import Button from 'components/Button'
 import React from 'react'
 import { Transition } from 'react-transition-group'
 
-import { useAutoDestroyBody, useMask, useModalAnimation } from './hook'
+import { useAnimation, useAutoDestroyBody, useMask } from './hook'
 import {
   Container,
   FooterBtnContainer,
@@ -194,13 +194,24 @@ const Modal: React.FC<Readonly<Props>> = (props) => {
   } = props
   // 点击掩膜是否关闭模态框
   const { handleMaskClick } = useMask(maskClosable, keyboard, onClose)
-  // 自动模态框关闭的时候销毁 Body
-  const { isDestroyBody } = useAutoDestroyBody(visible)
   // const { isDestroyBody } = useModalService(visible, onOk, onCancel, onClose)
-  const { inProp } = useModalAnimation(visible, outerInProp)
+  const { iInProp, iVisible, setIVisible } = useAnimation(
+    visible!,
+    outerInProp!
+  )
+  // 自动模态框关闭的时候销毁 Body
+  const { isDestroyBody } = useAutoDestroyBody(iVisible)
   return (
-    <Container visible={visible}>
-      <Transition in={inProp} timeout={duration!} appear={true}>
+    <Container visible={iVisible}>
+      <Transition
+        in={iInProp}
+        timeout={duration!}
+        appear={true}
+        onExited={() => {
+          // 退出动画结束，关闭框
+          setIVisible(false)
+        }}
+      >
         {(state) => (
           <ModalContent
             width={width}

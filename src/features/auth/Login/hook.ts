@@ -12,6 +12,7 @@ import { localStore } from 'service/utils/localStore'
 import { encrypt, decrypt } from 'service/utils/base64'
 import keys from 'service/local/localsotrage-key'
 import Message from 'components/Message'
+import { sleep } from 'service/utils/sleep'
 
 /**
  * 登录表单
@@ -62,12 +63,12 @@ export const useLoginModal = (
   accountRef: RefObject<FormItemRefObject>,
   passwordRef: RefObject<FormItemRefObject>
 ) => {
-  const { close, visible, inProp, duration } = useBaseModal(true, 0.25)
+  const { close, visible, inProp, duration, open } = useBaseModal(false)
   const history = useHistory()
   const dispatch = useDispatch()
 
   const goToRegister = async () => {
-    await close()
+    close()
     history.push('/auth/register')
   }
 
@@ -115,9 +116,17 @@ export const useLoginModal = (
 
     // 保存账号密码功能
     autoSavePassword()
-    await close()
+    close()
     history.replace('/')
   }
+
+  /**
+   * 打开模态框
+   */
+  useEffect(() => {
+    open()
+  }, [open])
+
   return {
     inProp,
     duration,

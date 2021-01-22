@@ -1,28 +1,26 @@
 import { useCallback, useState } from 'react'
-import { sleep } from 'service/utils/sleep'
 
-export const useBaseModal = (v = false, animationDuration = 0.2) => {
-  const [visible, setVisible] = useState(v)
-  const [inProp, setInProp] = useState<boolean>(true)
-  const [duration, setDuration] = useState(animationDuration)
-
-  const close = useCallback(async () => {
-    setInProp(false)
-    await sleep(duration)
-    setVisible(false)
-  }, [duration])
+export const useBaseModal = (isShow = false, iDuration = 400) => {
+  const [visible, setVisible] = useState(isShow)
+  const [inProp, setInProp] = useState(isShow)
+  const [duration, setDuration] = useState(iDuration)
 
   const open = useCallback(() => {
     setVisible(true)
     setInProp(true)
   }, [])
 
+  const close = useCallback(() => {
+    setVisible(false)
+    setInProp(false)
+  }, [])
+
   return {
     visible,
     inProp,
-    duration,
-    setDuration,
     open,
     close,
+    duration,
+    setDuration,
   }
 }
