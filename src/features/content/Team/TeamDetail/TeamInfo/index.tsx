@@ -1,8 +1,8 @@
 import Button from 'components/Button'
-import Icon from 'components/Icon'
 import Line from 'components/Line'
 import Modal from 'components/Modal'
 import React, { Dispatch } from 'react'
+import { FaSave } from 'react-icons/fa'
 import { Team, TeamVersion } from 'service/http/api/team'
 import { formatDate } from 'service/utils/formatDate'
 import { TeamsType } from '../../TeamLeftNav/LeftNavTeamList'
@@ -105,8 +105,7 @@ const TeamInfo: React.FC<Readonly<Props>> = (props) => {
         title="编辑团队"
         okText={
           <>
-            <Icon
-              type={'FaSave'}
+            <FaSave
               style={{
                 marginRight: '.375em',
               }}

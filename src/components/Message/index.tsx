@@ -1,17 +1,23 @@
 import RcNotification from 'rc-notification'
 import { NotificationInstance } from 'rc-notification/lib/Notification'
 import classnames from 'classnames'
-import Icon from 'components/Icon'
 import { MessageStyle } from './index.style'
+import React from 'react'
+import {
+  FaRegCheckCircle,
+  FaRegLightbulb,
+  FaRegMeh,
+  FaRegTimesCircle,
+} from 'react-icons/fa'
 
 /**
  * 四种不同的提示框的图标
  */
 const iconType = {
-  success: 'FaRegCheckCircle',
-  warning: 'FaRegMeh',
-  info: 'FaRegLightbulb',
-  error: 'FaRegTimesCircle',
+  success: <FaRegCheckCircle />,
+  warning: <FaRegMeh />,
+  info: <FaRegLightbulb />,
+  error: <FaRegTimesCircle />,
 }
 
 interface MessageBaseConfig {
@@ -105,7 +111,7 @@ const Message = (() => {
         <div className={classnames('xMessage', className)}>
           <MessageStyle />
           <div className={classnames('iconWrap', type)}>
-            {icon ? icon : <Icon type={iconType[type] as 'FaRegCheckCircle'} />}
+            {icon ? icon : iconType[type]}
           </div>
           <div className="xMessageTit">{content}</div>
         </div>

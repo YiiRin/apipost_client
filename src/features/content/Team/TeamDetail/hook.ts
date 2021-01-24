@@ -13,6 +13,7 @@ import { TeamsType } from '../TeamLeftNav/LeftNavTeamList'
 import { toggleCurrentTeamThunk } from './thunk'
 import PubSub from 'pubsub-js'
 import { RELOAD_TEAMS } from '../pubsub-token'
+import { loadCurrentTeamThunk } from 'features/header/UserInfo/thunk'
 
 export interface TeamMemberVo {
   /**
@@ -157,7 +158,10 @@ export const useToggleCurrentTeam = (team: Team | null) => {
   const { visible, inProp, duration, close, open } = useBaseConfirm(false, 400)
   const dispatch = useDispatch()
   const handleToggleCurrentTeam = async () => {
-    team && dispatch(toggleCurrentTeamThunk(team))
+    if (team) {
+      dispatch(toggleCurrentTeamThunk(team))
+      dispatch(loadCurrentTeamThunk(team.id))
+    }
     close()
   }
 

@@ -1,25 +1,9 @@
+import {
+  _545b62_adb5bd,
+  _e9ecef_404040,
+  _f7f7f7_303030,
+} from 'assets/theme/color'
 import styled from 'styled-components'
-import theme from 'styled-theming'
-
-const bgColor = theme('mode', {
-  light: '#E9ECEF',
-  dark: '#404040',
-})
-
-const bgColorFocus = theme('mode', {
-  light: '#F7F7F7',
-  dark: '#303030',
-})
-
-const color = theme('mode', {
-  light: '#545B62',
-  dark: '#ADB5BD',
-})
-
-const iconHoverColor = theme('mode', {
-  light: '#EE6A5E',
-  dark: '#EE6A5E',
-})
 
 export const Container = styled.div`
   flex: 1 1 auto;
@@ -34,7 +18,7 @@ export const InputContainer = styled.div`
   position: relative;
 
   &:hover i {
-    color: ${iconHoverColor};
+    color: #ee6a5e;
   }
 `
 
@@ -47,18 +31,18 @@ export const Input = styled.input`
   padding: 0;
   padding-left: 36px;
   padding-bottom: 2px;
-  color: ${color};
+  color: ${_545b62_adb5bd};
 
-  background-color: ${bgColor};
+  background-color: ${_e9ecef_404040};
   &:focus {
     outline: none;
     border-radius: 0;
-    background-color: ${bgColorFocus};
+    background-color: ${_f7f7f7_303030};
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   }
 
   &:focus + i {
-    color: ${iconHoverColor};
+    color: #ee6a5e;
   }
 
   &::placeholder {
@@ -68,7 +52,7 @@ export const Input = styled.input`
 
 export const Icon = styled.i`
   position: absolute;
-  color: ${color};
+  color: ${_545b62_adb5bd};
   left: 14px;
   top: 12px;
 `

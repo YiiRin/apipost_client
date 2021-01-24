@@ -1,16 +1,5 @@
+import { _545b62_adb5bd, _7e7e7e_141414 } from 'assets/theme/color'
 import styled from 'styled-components'
-import theme from 'styled-theming'
-
-const color = theme('mode', {
-  light: '#545B62',
-  dark: '#adb5bd',
-})
-
-const bgColor = theme('mode', {
-  light: '#7e7e7e',
-  dark: '#141414',
-})
-
 
 export const AppContainer = styled.div`
   display: flex;
@@ -18,8 +7,8 @@ export const AppContainer = styled.div`
   width: 100vw;
   min-width: 1480px;
   height: 100vh;
-  color: ${color};
-  background-color: ${bgColor};
+  color: ${_545b62_adb5bd};
+  background-color: ${_7e7e7e_141414};
 `
 
 export const Container = styled.div`
@@ -36,7 +25,7 @@ export const Container = styled.div`
     }
     label {
       margin: 0;
-      color: ${color};
+      color: ${_545b62_adb5bd};
     }
   }
 `

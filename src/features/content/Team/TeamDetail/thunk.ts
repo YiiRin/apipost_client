@@ -1,4 +1,7 @@
-import { toggleCurrentTeam, updateUserInfo } from 'features/header/UserInfo/action'
+import {
+  toggleCurrentTeam,
+  updateUserInfo,
+} from 'features/header/UserInfo/action'
 import { Dispatch } from 'redux'
 import { teamApis } from 'service/http/api'
 import { Team } from 'service/http/api/team'

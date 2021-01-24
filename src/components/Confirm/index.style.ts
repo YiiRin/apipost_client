@@ -1,3 +1,14 @@
+import {
+  _545b62_adb5bd,
+  _76797d_e9ecef,
+  _8e969c_5e666c,
+  _e9ecef_404040,
+  _edeff2_3b3b3b,
+  _f1877e_c65d53,
+  _fcfcfc_282828,
+  _fcfcfc_fce5bf,
+  _fdf2f1_d2c0be,
+} from 'assets/theme/color'
 import styled from 'styled-components'
 import theme from 'styled-theming'
 
@@ -18,11 +29,6 @@ export const Container = styled.div<{ visible?: boolean }>`
   left: 0;
 `
 
-const contentBg = theme('mode', {
-  light: '#FCFCFC',
-  dark: '#282828',
-})
-
 const leftDistance = (props: any) => {
   let width
   if (props.width) {
@@ -34,11 +40,6 @@ const leftDistance = (props: any) => {
   return `${width}px`
 }
 
-const contentColor = theme('mode', {
-  light: '#545B62',
-  dark: '#ADB5BD',
-})
-
 const duration = (props: any) => props.duration + 'ms'
 
 export const ConfirmContent = styled.div<ContentProps>`
@@ -49,13 +50,13 @@ export const ConfirmContent = styled.div<ContentProps>`
 
   width: ${({ width }) => width};
   height: ${({ height }) => height || 'auto'};
-  background-color: ${contentBg};
+  background-color: ${_fcfcfc_282828};
   background-clip: padding-box;
 
   border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
-  color: ${contentColor};
+  color: ${_545b62_adb5bd};
 
   &.confirm,
   &.confirm-exited {
@@ -88,46 +89,6 @@ export const ConfirmBody = styled.div`
   font-size: 12px;
 `
 
-const okBtnBg = theme('mode', {
-  light: '#EE6A5E',
-  dark: '#EE6A5E',
-})
-
-const okBtnColor = theme('mode', {
-  light: '#FCFCFC',
-  dark: '#FCE5BF',
-})
-
-const okBtnHoverBg = theme('mode', {
-  light: '#F1877E',
-  dark: '#C65D53',
-})
-
-const okBtnHoverColor = theme('mode', {
-  light: '#FDF2F1',
-  dark: '#D2C0BE',
-})
-
-const cancelBtnBg = theme('mode', {
-  light: '#E9ECEF',
-  dark: '#404040',
-})
-
-const cancelBtnColor = theme('mode', {
-  light: '#76797D',
-  dark: '#E9ECEF',
-})
-
-const cancelBtnHoverBg = theme('mode', {
-  light: '#EDEFF2',
-  dark: '#3B3B3B',
-})
-
-const cancelBtnHoverColor = theme('mode', {
-  light: '#8E969C',
-  dark: '#5E666C',
-})
-
 export const ConfirmFooter = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -136,21 +97,21 @@ export const ConfirmFooter = styled.div`
     padding: 1.25em;
     font-size: 12px;
     .ok {
-      background-color: ${okBtnBg};
-      color: ${okBtnColor};
+      background-color: #ee6a5e;
+      color: ${_fcfcfc_fce5bf};
 
       &:hover {
-        background-color: ${okBtnHoverBg};
-        color: ${okBtnHoverColor};
+        background-color: ${_f1877e_c65d53};
+        color: ${_fdf2f1_d2c0be};
       }
     }
     .cancel {
-      background-color: ${cancelBtnBg};
-      color: ${cancelBtnColor};
+      background-color: ${_e9ecef_404040};
+      color: ${_76797d_e9ecef};
 
       &:hover {
-        background-color: ${cancelBtnHoverBg};
-        color: ${cancelBtnHoverColor};
+        background-color: ${_edeff2_3b3b3b};
+        color: ${_8e969c_5e666c};
       }
     }
   }

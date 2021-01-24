@@ -1,9 +1,9 @@
 import Button from 'components/Button'
 import Confirm from 'components/Confirm'
-import Icon from 'components/Icon'
 import Modal from 'components/Modal'
 import { userInfoSelector } from 'features/header/UserInfo/selector'
 import React from 'react'
+import { FaSave, FaUser } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
 import { TeamMemberRole } from 'service/http/api/team'
 import { formatDate } from 'service/utils/formatDate'
@@ -145,7 +145,7 @@ const OfficialCubicle: React.FC<Readonly<Props>> = (props) => {
       {userId && <span className="right">已绑定成员</span>}
       <MemberInfo>
         <span className="header icon">
-          <Icon type="FaUser" />
+          <FaUser />
         </span>
         <span className="header">
           {username} {role === TeamMemberRole.ADMINISTRATOR ? '（管理员）' : ''}
@@ -193,8 +193,7 @@ const OfficialCubicle: React.FC<Readonly<Props>> = (props) => {
         title="绑定工位"
         okText={
           <>
-            <Icon
-              type={'FaSave'}
+            <FaSave
               style={{
                 marginRight: '.375em',
               }}

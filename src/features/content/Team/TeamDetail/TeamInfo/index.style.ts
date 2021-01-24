@@ -1,10 +1,10 @@
+import {
+  _545b62_adb5bd,
+  _e9eaeb_323232,
+  _f2968e_b2564e,
+  _f7f7f7_303030,
+} from 'assets/theme/color'
 import styled from 'styled-components'
-import theme from 'styled-theming'
-
-const btnHoverColor = theme('mode', {
-  light: '#F2968E',
-  dark: '#B2564E',
-})
 
 export const Container = styled.div`
   font-size: 13px;
@@ -27,34 +27,18 @@ export const Container = styled.div`
         margin: 0;
 
         &:hover {
-          color: ${btnHoverColor};
+          color: ${_f2968e_b2564e};
         }
       }
     }
   }
 `
-const textBg = theme('mode', {
-  light: '#F7F7F7',
-  dark: '#303030',
-})
 
-const borderColor = theme('mode', {
-  light: '#E9EAEB',
-  dark: '#323232',
-})
-const placeholerColor = theme('mode', {
-  light: '#757575',
-  dark: '#757575',
-})
-const inputColor = theme('mode', {
-  light: '#545B62',
-  dark: '#ADB5BD',
-})
 export const ModalContentContainer = styled.div`
   .tip {
     font-size: 12px;
     color: #ee6a5e;
-    background-color: ${textBg};
+    background-color: ${_f7f7f7_303030};
     padding: 0.375em 0.5em;
     line-height: 1.5;
     margin-bottom: 0.5em;
@@ -76,15 +60,15 @@ export const ModalContentContainer = styled.div`
       width: 312px;
       height: 32px;
       outline: none;
-      border: 1px solid ${borderColor};
+      border: 1px solid ${_e9eaeb_323232};
       border-radius: 0.375em;
       padding: 0 0.75em;
-      background-color: ${textBg};
-      color: ${inputColor};
+      background-color: ${_f7f7f7_303030};
+      color: ${_545b62_adb5bd};
 
       &::placeholer {
         font-size: 13px;
-        color: ${placeholerColor};
+        color: #757575;
       }
     }
   }

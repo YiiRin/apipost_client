@@ -1,30 +1,11 @@
+import {
+  _545b62_adb5bd,
+  _e9eaeb_323232,
+  _e9eaeb_404040,
+  _f7f7f7_303030,
+} from 'assets/theme/color'
 import styled from 'styled-components'
-import theme from 'styled-theming'
 
-const bgColor = theme('mode', {
-  light: '#F7F7F7',
-  dark: '#303030',
-})
-
-const borderColor = theme('mode', {
-  light: '#E9EAEB',
-  dark: '#323232',
-})
-
-const usernameColor = theme('mode', {
-  light: '#545b62',
-  dark: '#ADB5BD',
-})
-
-const emailColor = theme('mode', {
-  light: '#ADB5BD',
-  dark: '#ADB5BD',
-})
-
-const linkHoverBgColor = theme('mode', {
-  light: '#E9EAEB',
-  dark: '#404040',
-})
 const baseZIndex = 800
 export const Container = styled.div<{ visible: boolean }>`
   position: absolute;
@@ -33,8 +14,8 @@ export const Container = styled.div<{ visible: boolean }>`
   right: 14px;
   top: 45px;
   width: 220px;
-  background-color: ${bgColor};
-  border: 1px solid ${borderColor};
+  background-color: ${_f7f7f7_303030};
+  border: 1px solid ${_e9eaeb_323232};
   border-radius: 10px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 
@@ -71,16 +52,16 @@ const BaseSpan = styled.span`
   font-size: 12px;
 `
 export const Email = styled(BaseSpan)`
-  color: ${emailColor};
+  color: #adb5bd;
 `
 
 export const Username = styled(BaseSpan)`
-  color: ${usernameColor};
+  color: ${_545b62_adb5bd};
 `
 
 export const Nav = styled.nav`
   div:hover {
-    background-color: ${linkHoverBgColor};
+    background-color: ${_e9eaeb_404040};
   }
 
   .link {

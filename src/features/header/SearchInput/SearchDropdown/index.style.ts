@@ -1,25 +1,9 @@
+import {
+  _e9ecef_404040,
+  _ebebeb_323232,
+  _f7f7f7_303030,
+} from 'assets/theme/color'
 import styled from 'styled-components'
-import theme from 'styled-theming'
-
-const borderColor = theme('mode', {
-  light: '#EBEBEB',
-  dark: '#323232',
-})
-
-const listBgColor = theme('mode', {
-  light: '#f7f7f7',
-  dark: '#303030',
-})
-
-const optionContainerBgColor = theme('mode', {
-  light: '#e9ecef',
-  dark: '#404040',
-})
-
-const activeOptionBgColor = theme('mode', {
-  light: '#F7F7F7',
-  dark: '#303030',
-})
 
 export const Container = styled.div<{ visible: boolean }>`
   position: absolute;
@@ -27,18 +11,18 @@ export const Container = styled.div<{ visible: boolean }>`
   display: ${({ visible }) => (visible ? 'block' : 'none')};
   width: 100%;
   height: 280px;
-  border: 1px solid ${borderColor};
+  border: 1px solid ${_ebebeb_323232};
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   font-size: 13px;
   .list {
-    background-color: ${listBgColor};
+    background-color: ${_f7f7f7_303030};
   }
 `
 
 export const OptionContainer = styled.div`
   height: 28px;
   padding-top: 2px;
-  background-color: ${optionContainerBgColor};
+  background-color: ${_e9ecef_404040};
 
   .link {
     padding: 0 1em;
@@ -48,7 +32,7 @@ export const OptionContainer = styled.div`
   }
 
   button.active {
-    background-color: ${activeOptionBgColor};
+    background-color: ${_f7f7f7_303030};
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }

@@ -1,6 +1,18 @@
 import styled from 'styled-components'
 import theme from 'styled-theming'
 import React from 'react'
+import {
+  _76797d_e9ecef,
+  _7d8287_8e949a,
+  _888f95_60676e,
+  _e9eaeb_323232,
+  _e9ecef_404040,
+  _eceef1_3d3d3d,
+  _f0867d_c85e55,
+  _f7f7f7_303030,
+  _fcfcfc_282828,
+  _fdfdfd_d6d6d6,
+} from 'assets/theme/color'
 
 interface ContainerProps {
   visible?: boolean
@@ -18,10 +30,6 @@ interface ModalFooterProps {
 }
 
 const baseZIndex = 999
-const contentBg = theme('mode', {
-  light: '#FCFCFC',
-  dark: '#282828',
-})
 
 export const Container = styled.div<ContainerProps>`
   display: ${({ visible }) => (visible ? 'block' : 'none')};
@@ -47,7 +55,8 @@ const leftDistance = (props: any) => {
 }
 
 const duration = (props: any) =>
-  props.duration ? props.duration  + 'ms' : '200ms'
+  props.duration ? props.duration + 'ms' : '200ms'
+
 export const ModalContent = styled.div<ModalContentProps>`
   position: relative;
   /* top: 20vh; */
@@ -55,7 +64,7 @@ export const ModalContent = styled.div<ModalContentProps>`
   z-index: ${baseZIndex + 1};
   width: ${({ width }) => width || '500px'};
 
-  background-color: ${contentBg};
+  background-color: ${_fcfcfc_282828};
   background-clip: padding-box;
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -79,35 +88,16 @@ export const ModalContent = styled.div<ModalContentProps>`
   }
 `
 
-const titleColor = theme('mode', {
-  light: '#6C757D',
-  dark: '#6C757D',
-})
-const titleBg = theme('mode', {
-  light: '#F7F7F7',
-  dark: '#303030',
-})
-
-const closeBtnHoverColor = theme('mode', {
-  light: '#7D8287',
-  dark: '#8E949A',
-})
-
-const titleBorderColor = theme('mode', {
-  light: '#E9EAEB',
-  dark: '#323232',
-})
-
 export const ModalTitle = styled.div`
   padding: 0.75em 1.25em;
-  background-color: ${titleBg};
-  color: ${titleColor};
+  background-color: ${_f7f7f7_303030};
+  color: #6c757d;
   font-size: 13px;
 
   display: flex;
   justify-content: space-between;
 
-  border-bottom: 1px solid ${titleBorderColor};
+  border-bottom: 1px solid ${_e9eaeb_323232};
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 
@@ -116,28 +106,19 @@ export const ModalTitle = styled.div`
     cursor: pointer;
 
     &:hover {
-      color: ${closeBtnHoverColor};
+      color: ${_7d8287_8e949a};
       text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
     }
   }
 `
-const bodyBg = theme('mode', {
-  light: '#FCFCFC',
-  dark: '#282828',
-})
 
 export const ModalBody = styled.div`
   padding: 1.25em 5%;
-  background-color: ${bodyBg};
+  background-color: ${_fcfcfc_282828};
 `
 
-const footerBorderColor = theme('mode', {
-  light: '#E9EAEB',
-  dark: '#323232',
-})
-
 export const ModalFooterContainer = styled.div<ModalFooterProps>`
-  border-top: 1px solid ${footerBorderColor};
+  border-top: 1px solid ${_e9eaeb_323232};
   padding: 1.25em 1.25em;
 
   display: flex;
@@ -150,64 +131,26 @@ export const FooterLeftContainer = styled.div`
   align-items: center;
 `
 
-const cancelBtnBg = theme('mode', {
-  light: '#E9ECEF',
-  dark: '#404040',
-})
-
-const cancelBtnColor = theme('mode', {
-  light: '#76797D',
-  dark: '#E9ECEF',
-})
-const cancelBtnHoverBg = theme('mode', {
-  light: '#ECEEF1',
-  dark: '#3D3D3D',
-})
-
-const cancelBtnHoverColor = theme('mode', {
-  light: '#888F95',
-  dark: '#60676E',
-})
-
-const okBtnBg = theme('mode', {
-  light: '#EE6A5E',
-  dark: '#EE6A5E',
-})
-
-const okBtnColor = theme('mode', {
-  light: '#FCFCFC',
-  dark: '#FCFCFC',
-})
-
-const okBtnHoverBg = theme('mode', {
-  light: '#F0867D',
-  dark: '#C85E55',
-})
-
-const okBtnHoverColor = theme('mode', {
-  light: '#FDFDFD',
-  dark: '#D6D6D6',
-})
 
 export const FooterBtnContainer = styled.div`
   font-size: 13px;
   .cancel-btn {
-    background-color: ${cancelBtnBg};
-    color: ${cancelBtnColor};
+    background-color: ${_e9ecef_404040};
+    color: ${_76797d_e9ecef};
 
     &:hover {
-      background-color: ${cancelBtnHoverBg};
-      color: ${cancelBtnHoverColor};
+      background-color: ${_eceef1_3d3d3d};
+      color: ${_888f95_60676e};
     }
   }
 
   .ok-btn {
-    background-color: ${okBtnBg};
-    color: ${okBtnColor};
+    background-color: #ee6a5e;
+    color: #fcfcfc;
 
     &:hover {
-      background-color: ${okBtnHoverBg};
-      color: ${okBtnHoverColor};
+      background-color: ${_f0867d_c85e55};
+      color: ${_fdfdfd_d6d6d6};
     }
   }
 `

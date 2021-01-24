@@ -1,5 +1,5 @@
 import { User } from 'service/http/api/auth'
-import { Team } from 'service/http/api/team'
+import { FindTeamResult, Team } from 'service/http/api/team'
 import { createAction, createAsyncAction } from 'typesafe-actions'
 
 /**
@@ -27,8 +27,8 @@ export const updateUserInfo = createAction('UPDATE_USER_INFO')<User>()
 export const loadCurrentTeam = createAsyncAction(
   'LOAD_CURRENT_TEAM_REQUEST',
   'LOAD_CURRENT_TEAM_SUCCESS',
-  'LOAD_CURRENT_TEAM_FAILED',
-)<undefined, Team, undefined>()
+  'LOAD_CURRENT_TEAM_FAILED'
+)<undefined, FindTeamResult, undefined>()
 
 /**
  * 切换当前团队

@@ -2,8 +2,13 @@ import React from 'react'
 import RcNotification from 'rc-notification'
 import { NotificationInstance } from 'rc-notification/lib/Notification'
 import classnames from 'classnames'
-import Icon from 'components/Icon'
 import { NotificationStyle } from './index.style'
+import {
+  FaRegCheckCircle,
+  FaRegMeh,
+  FaRegLightbulb,
+  FaRegTimesCircle,
+} from 'react-icons/fa'
 
 /**
  * 通知框不同方向默认偏移量
@@ -31,10 +36,10 @@ const adapterPos = {
  * 四种不同的提示框的图标
  */
 const iconType = {
-  success: 'FaRegCheckCircle',
-  warning: 'FaRegMeh',
-  info: 'FaRegLightbulb',
-  error: 'FaRegTimesCircle',
+  success: <FaRegCheckCircle />,
+  warning: <FaRegMeh />,
+  info: <FaRegLightbulb />,
+  error: <FaRegTimesCircle />,
 }
 interface NoticeBaseConfig {
   /**
@@ -162,7 +167,7 @@ const Notification = (function () {
         <div className={classnames('xNotice', className)}>
           <NotificationStyle />
           <div className={classnames('iconWrap', type)}>
-            {icon ? icon : <Icon type={iconType[type] as 'FaRegCheckCircle'} />}
+            {icon ? icon : iconType[type]}
           </div>
           <div>
             <div className="xNoticeTit">{title}</div>

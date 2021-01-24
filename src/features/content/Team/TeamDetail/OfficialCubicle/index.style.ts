@@ -1,32 +1,23 @@
+import {
+  _545b62_adb5bd,
+  _e9eaeb_323232,
+  _f2968e_b2564e,
+  _f7f7f7_303030,
+  _f8f8f8_2e2e2e,
+} from 'assets/theme/color'
 import styled from 'styled-components'
-import theme from 'styled-theming'
-
-const containerBg = theme('mode', {
-  light: '#F7F7F7',
-  dark: '#303030',
-})
-
-const containerHoverBg = theme('mode', {
-  light: '#F8F8F8',
-  dark: '#2E2E2E',
-})
-
-const color = theme('mode', {
-  light: '#6C757D',
-  dark: '',
-})
 
 export const Container = styled.div`
   width: 240px;
   height: 160px;
-  background-color: ${containerBg};
+  background-color: ${_f7f7f7_303030};
   border-radius: 8px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
   margin-right: 16px;
   position: relative;
 
   &:hover {
-    background-color: ${containerHoverBg};
+    background-color: ${_f8f8f8_2e2e2e};
   }
 
   .left,
@@ -51,10 +42,6 @@ export const Container = styled.div`
   }
 `
 
-const btnHoverColor = theme('mode', {
-  light: '#F2968E',
-  dark: '#B2564E',
-})
 export const MemberInfo = styled.div`
   height: 100%;
   display: flex;
@@ -91,7 +78,7 @@ export const MemberInfo = styled.div`
       color: #ee6a5e;
 
       &:hover {
-        color: ${btnHoverColor};
+        color: ${_f2968e_b2564e};
       }
     }
   }
@@ -101,24 +88,6 @@ export const MemberInfo = styled.div`
     font-size: 12px;
   }
 `
-
-const textBg = theme('mode', {
-  light: '#F7F7F7',
-  dark: '#303030',
-})
-
-const borderColor = theme('mode', {
-  light: '#E9EAEB',
-  dark: '#323232',
-})
-const placeholerColor = theme('mode', {
-  light: '#757575',
-  dark: '#757575',
-})
-const inputColor = theme('mode', {
-  light: '#545B62',
-  dark: '#ADB5BD',
-})
 export const ModalContentContainer = styled.div`
   .email-item {
     font-size: 13px;
@@ -138,15 +107,15 @@ export const ModalContentContainer = styled.div`
       width: 312px;
       height: 32px;
       outline: none;
-      border: 1px solid ${borderColor};
+      border: 1px solid ${_e9eaeb_323232};
       border-radius: 0.375em;
       padding: 0 0.75em;
-      background-color: ${textBg};
-      color: ${inputColor};
+      background-color: ${_f7f7f7_303030};
+      color: ${_545b62_adb5bd};
 
       &::placeholer {
         font-size: 13px;
-        color: ${placeholerColor};
+        color: #757575;
       }
     }
   }

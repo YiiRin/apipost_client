@@ -12,7 +12,6 @@ import { localStore } from 'service/utils/localStore'
 import { encrypt, decrypt } from 'service/utils/base64'
 import keys from 'service/local/localsotrage-key'
 import Message from 'components/Message'
-import { sleep } from 'service/utils/sleep'
 
 /**
  * 登录表单

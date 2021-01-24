@@ -1,5 +1,5 @@
 import Button from 'components/Button'
-import React, { CSSProperties, MouseEventHandler } from 'react'
+import React, { MouseEventHandler } from 'react'
 import { useChangeActive } from './hook'
 import { Container, OptionContainer } from './index.style'
 type Props = {

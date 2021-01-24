@@ -66,7 +66,7 @@ export const addTeam = async (teamName: string) =>
     ResponseSuccess<AddTeamResult> | ResponseError
   >
 
-interface FindTeamResult {
+export interface FindTeamResult {
   team: Team
   members: User[]
 }

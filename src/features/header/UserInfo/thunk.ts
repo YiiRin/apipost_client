@@ -12,11 +12,18 @@ export const loadCurrentTeamThunk = (teamId: string) => {
   return async (dispatch: Dispatch) => {
     dispatch(loadCurrentTeam.request())
 
-    try {
-      const result = await teamApis.getTeamById(teamId)
-      dispatch(loadCurrentTeam.success(result.data!.team))
-    } catch (error) {
-      dispatch(loadCurrentTeam.failure())
+    if (teamId) {
+      try {
+        const result = await teamApis.getTeamById(teamId)
+        result.data && dispatch(loadCurrentTeam.success(result.data))
+      } catch (error) {
+        dispatch(loadCurrentTeam.failure())
+      }
+    }else {
+      dispatch(loadCurrentTeam.success({
+        team: {} as Team,
+        members: []
+      }))
     }
   }
 }

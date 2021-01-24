@@ -1,6 +1,9 @@
 import Message from 'components/Message'
 import { userInfoSelector } from 'features/header/UserInfo/selector'
-import { loadUserInfoThunk } from 'features/header/UserInfo/thunk'
+import {
+  loadCurrentTeamThunk,
+  loadUserInfoThunk,
+} from 'features/header/UserInfo/thunk'
 import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -46,6 +49,7 @@ export const useExitTeam = (
 ) => {
   const rest = useBaseConfirm(false, 400)
   const userInfo = useSelector(userInfoSelector)
+
   const dispatch = useDispatch()
   // const history = useHistory()
 
@@ -54,6 +58,7 @@ export const useExitTeam = (
     if (userId === userInfo.id) {
       if (teamId === userInfo.currentTeamId) {
         dispatch(loadUserInfoThunk())
+        dispatch(loadCurrentTeamThunk(''))
       }
       PubSub.publish(RELOAD_TEAMS)
     }

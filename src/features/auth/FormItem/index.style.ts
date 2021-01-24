@@ -1,34 +1,25 @@
+import {
+  _76797d_e9ecef,
+  _e9ecef_404040,
+  _fcfcfc_282828,
+} from 'assets/theme/color'
 import styled from 'styled-components'
 import theme from 'styled-theming'
-
-const color = theme('mode', {
-  light: '#76797D',
-  dark: '#E9ECEF',
-})
-
-const labelBg = theme('mode', {
-  light: '#E9ECEF',
-  dark: '#404040',
-})
-
-const inputBg = theme('mode', {
-  light: '#FCFCFC',
-  dark: '#282828',
-})
 
 const placeholderHoverColor = theme('mode', {
   light: '#899096',
   dark: '#A9ABAD',
 })
+
 export const Container = styled.div`
   font-size: 12px;
-  color: ${color};
+  color: ${_76797d_e9ecef};
   /* height: 36px; */
   display: flex;
   flex-wrap: wrap;
 
   label {
-    background-color: ${labelBg};
+    background-color: ${_e9ecef_404040};
     height: 36px;
     padding-right: 1.5em;
     margin: 0;
@@ -47,10 +38,10 @@ export const Container = styled.div`
     border: none;
     outline: none;
     width: 80%;
-    border: 1px solid ${labelBg};
+    border: 1px solid ${_e9ecef_404040};
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
-    background-color: ${inputBg};
+    background-color: ${_fcfcfc_282828};
 
     padding-left: 1em;
 

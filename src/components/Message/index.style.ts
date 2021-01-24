@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components'
-import theme from 'styled-theming'
 
 const baseZIndex = 1003
 export const MessageStyle = createGlobalStyle`
