@@ -7,9 +7,9 @@ import { useComponentShow, useUserInfo } from './hook'
 import PortraitDropdown from './PortraitDropdown'
 import { getImgUrl } from 'service/utils/get-img-url'
 import { useSelector } from 'react-redux'
-import { isLoginSelector } from './selector'
 import { useHistory } from 'react-router-dom'
 import { TeamMemberRole } from 'service/http/api/team'
+import { isLoginSelector } from 'store/auth/selector'
 
 type Props = {}
 

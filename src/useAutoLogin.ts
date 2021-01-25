@@ -1,4 +1,4 @@
-import { toggleAuthStatus } from 'features/auth/action'
+import { toggleAuthStatus } from 'store/auth/action'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'

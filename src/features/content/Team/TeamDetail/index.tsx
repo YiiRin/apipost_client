@@ -16,7 +16,7 @@ import {
   useToggleCurrentTeam,
 } from './hook'
 import { useSelector } from 'react-redux'
-import { currentTeamSelector } from 'features/header/UserInfo/selector'
+import { currentTeamSelector } from 'store/user/selector'
 import Confirm from 'components/Confirm'
 
 type Props = {}

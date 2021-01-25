@@ -2,7 +2,7 @@ import Message from 'components/Message'
 import Notification from 'components/Notification'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { themeModeSelector } from 'routes/ApiPost/selector'
+import { themeModeSelector } from 'store/theme/selector'
 import { ThemeProvider } from 'styled-components'
 
 const App: React.FC<{}> = () => {

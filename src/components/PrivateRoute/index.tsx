@@ -1,4 +1,4 @@
-import { isLoginSelector } from 'features/header/UserInfo/selector'
+import { isLoginSelector } from 'store/auth/selector'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Redirect, Route, RouteProps } from 'react-router-dom'
@@ -6,8 +6,8 @@ type Props = {}
 
 /**
  * 只有登录了的用户才能访问的路由
- * 
- * @param props 
+ *
+ * @param props
  */
 const PrivateRoute: React.FC<Readonly<Props & RouteProps>> = (props) => {
   const { children, ...rest } = props

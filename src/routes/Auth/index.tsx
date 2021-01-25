@@ -1,4 +1,4 @@
-import { isLoginSelector } from 'features/header/UserInfo/selector'
+import { isLoginSelector } from 'store/auth/selector'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Redirect, Route, Switch, useLocation } from 'react-router-dom'
@@ -12,7 +12,7 @@ const Auth: React.FC<Readonly<Props>> = (props) => {
   const isLogin = useSelector(isLoginSelector)
   const { state } = useLocation<{ from: string }>()
   if (isLogin) {
-    return <Redirect to={state && state.from ? state.from : '/'} />
+    return <Redirect to={state && state.from ? state.from : '/recent'} />
   }
 
   return (

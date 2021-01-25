@@ -17,12 +17,13 @@ const userInfo = createReducer({} as User)
   )
   .handleAction([removeUserInfo], (_, __) => ({} as User))
 
-const currentTeam = createReducer({} as Team)
-  .handleAction([loadCurrentTeam.success], (_, action) => action.payload.team)
-  .handleAction([toggleCurrentTeam], (_, action) => action.payload)
+const currentTeam = createReducer({} as Team).handleAction(
+  [loadCurrentTeam.success, toggleCurrentTeam],
+  (_, action) => action.payload.team
+)
 
 const currentTeamUsers = createReducer([] as User[]).handleAction(
-  [loadCurrentTeam.success],
+  [loadCurrentTeam.success, toggleCurrentTeam],
   (_, action) => action.payload.members
 )
 

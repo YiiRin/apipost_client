@@ -1,7 +1,7 @@
 import Button from 'components/Button'
 import Confirm from 'components/Confirm'
 import Modal from 'components/Modal'
-import { userInfoSelector } from 'features/header/UserInfo/selector'
+import { userInfoSelector } from 'store/user/selector'
 import React from 'react'
 import { FaSave, FaUser } from 'react-icons/fa'
 import { useSelector } from 'react-redux'

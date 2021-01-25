@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { User } from 'service/http/api/auth'
-import keys from 'service/local/localsotrage-key'
-import { localStore } from 'service/utils/localStore'
-import { loadUserInfo } from './action'
-import { currentTeamSelector, userInfoSelector } from './selector'
-import { loadCurrentTeamThunk } from './thunk'
+import { userApis } from 'service/http/api'
+import { loadUserInfo } from '../../../store/user/action'
+import {
+  currentTeamSelector,
+  userInfoSelector,
+} from '../../../store/user/selector'
+import { loadCurrentTeamThunk } from '../../../store/user/thunk'
 
 export const useComponentShow = () => {
   const [isShow, setIsShow] = useState(false)
@@ -51,15 +52,16 @@ export const useUserInfo = () => {
   const dispatch = useDispatch()
   // 组件加载时自动加载 localStorage 中的 userInfo
   useEffect(() => {
-    const { USER_INFO } = keys.login
-    const userInfo = localStore.get(USER_INFO) as User
-
-    if (userInfo) {
-      if (userInfo.currentTeamId) {
-        dispatch(loadCurrentTeamThunk(userInfo.currentTeamId))
+    async function _() {
+      const userInfoResult = await userApis.getUserInfo()
+      if (userInfoResult.data) {
+        dispatch(loadUserInfo.success(userInfoResult.data))
+        if (userInfoResult.data.currentTeamId) {
+          dispatch(loadCurrentTeamThunk(userInfoResult.data.currentTeamId))
+        }
       }
-      dispatch(loadUserInfo.success(userInfo))
     }
+    _()
   }, [dispatch])
 
   return { userInfo, currentTeam }

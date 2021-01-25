@@ -6,8 +6,8 @@ import { useBaseModal } from 'service/hook/auth/useBaseModal'
 import { useDataBind } from 'service/hook/common/useDataBind'
 import { authApis } from 'service/http/api'
 import { isResponseError } from 'service/http/api/type'
-import { toggleAuthStatus } from '../action'
-import { saveAuthData } from '../auth'
+import { toggleAuthStatus } from '../../../store/auth/action'
+import { saveAuthData } from '../../../store/auth/auth'
 import { FormItemRefObject } from '../FormItem'
 
 /**
@@ -103,8 +103,11 @@ export const useRegisterModal = (
     const loginResult = await authApis.login(account, password)
     if (isResponseError(loginResult)) {
       // 登录失败，弹出提示框
-      // TODO:
-      console.log('login error')
+      Message.pop({
+        type: 'error',
+        message: loginResult.message,
+        closable: true,
+      })
       return
     }
     // 6. 登录成功，切换登录状态，保存用户数据，然后跳转到应用主页

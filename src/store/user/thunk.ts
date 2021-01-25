@@ -19,11 +19,13 @@ export const loadCurrentTeamThunk = (teamId: string) => {
       } catch (error) {
         dispatch(loadCurrentTeam.failure())
       }
-    }else {
-      dispatch(loadCurrentTeam.success({
-        team: {} as Team,
-        members: []
-      }))
+    } else {
+      dispatch(
+        loadCurrentTeam.success({
+          team: {} as Team,
+          members: [],
+        })
+      )
     }
   }
 }
@@ -38,9 +40,18 @@ export const loadUserInfoThunk = () => {
 
     try {
       const result = await userApis.getUserInfo()
-      dispatch(loadUserInfo.success(result.data!))
-      if (!result.data?.currentTeamId) {
-        dispatch(toggleCurrentTeam({} as Team))
+      if (result.data) {
+        dispatch(loadUserInfo.success(result.data))
+        if (!result.data.currentTeamId) {
+          dispatch(
+            toggleCurrentTeam({
+              team: {} as Team,
+              members: [],
+            })
+          )
+        } else {
+          loadCurrentTeamThunk(result.data.currentTeamId)(dispatch)
+        }
       }
     } catch (error) {
       dispatch(loadUserInfo.failure())

@@ -14,7 +14,7 @@ import Line from 'components/Line'
 import Confirm from 'components/Confirm'
 import { useLogout } from './hook'
 import { useSelector } from 'react-redux'
-import { userInfoSelector } from '../selector'
+import { userInfoSelector } from '../../../../store/user/selector'
 import { getImgUrl } from 'service/utils/get-img-url'
 
 type Props = {

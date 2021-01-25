@@ -1,6 +1,5 @@
 import Message from 'components/Message'
-import { toggleCurrentTeam } from 'features/header/UserInfo/action'
-import { currentTeamSelector } from 'features/header/UserInfo/selector'
+import { currentTeamSelector } from 'store/user/selector'
 import { Dispatch, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useBaseModal } from 'service/hook/auth/useBaseModal'
@@ -9,6 +8,7 @@ import { Team } from 'service/http/api/team'
 import { isReportError } from 'service/utils/report-error'
 import PubSub from 'pubsub-js'
 import { UPDATE_TEAM_NAME } from '../../pubsub-token'
+import { loadCurrentTeamThunk } from 'store/user/thunk'
 
 export const useUpdateTeamName = (teamId: string, setTeam: Dispatch<Team>) => {
   const { visible, inProp, duration, close, open } = useBaseModal(false, 400)
@@ -35,7 +35,7 @@ export const useUpdateTeamName = (teamId: string, setTeam: Dispatch<Team>) => {
       setTeam(result.data)
       PubSub.publish(UPDATE_TEAM_NAME, result.data)
       if (currentTeam && currentTeam.id === result.data.id) {
-        dispatch(toggleCurrentTeam(result.data))
+        dispatch(loadCurrentTeamThunk(currentTeam.id))
       }
       close()
     }

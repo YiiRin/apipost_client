@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import { useSelector } from 'react-redux'
-import { themeModeSelector } from 'routes/ApiPost/selector'
+import { themeModeSelector } from 'store/theme/selector'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from 'assets/css/global'
 import { Route, Switch } from 'react-router-dom'

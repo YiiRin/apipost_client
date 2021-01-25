@@ -1,4 +1,4 @@
-import { toggleTheme } from 'assets/theme/action'
+import { toggleTheme } from 'store/theme/action'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useTheme } from 'styled-components'

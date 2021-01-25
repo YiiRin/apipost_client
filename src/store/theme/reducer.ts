@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { createReducer } from 'typesafe-actions'
 import { toggleTheme } from './action'
-import themeObj, { Theme } from './index'
+import themeObj, { Theme } from '../../assets/theme/index'
 
 /**
  * themeMode

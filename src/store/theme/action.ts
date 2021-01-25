@@ -1,5 +1,5 @@
 import {createAction} from 'typesafe-actions'
-import {ThemeMode} from './index'
+import {ThemeMode} from '../../assets/theme/index'
 
 /**
  * toggle theme

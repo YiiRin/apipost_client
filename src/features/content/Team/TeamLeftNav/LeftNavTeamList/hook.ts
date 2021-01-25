@@ -9,8 +9,8 @@ import { isResponseError } from 'service/http/api/type'
 import { isReportError } from 'service/utils/report-error'
 import { TeamsType } from '.'
 import PubSub from 'pubsub-js'
-import { updateUserInfo } from 'features/header/UserInfo/action'
 import { ADD_TEAM, RELOAD_TEAMS, UPDATE_TEAM_NAME } from '../../pubsub-token'
+import { loadUserInfoThunk } from 'store/user/thunk'
 /**
  * 加载团队
  * @param type
@@ -133,7 +133,7 @@ export const useAddTeamModal = () => {
     // 添加成功
     if (!isResponseError(result)) {
       if (result.data) {
-        dispatch(updateUserInfo(result.data.user))
+        dispatch(loadUserInfoThunk())
         PubSub.publish(ADD_TEAM, result.data.team)
       }
     }

@@ -1,7 +1,7 @@
 import {
   currentTeamSelector,
   currentTeamUsersSelector,
-} from 'features/header/UserInfo/selector'
+} from 'store/user/selector'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useDataBind } from 'service/hook/common/useDataBind'

@@ -1,5 +1,5 @@
 import { User } from 'service/http/api/auth'
-import { FindTeamResult, Team } from 'service/http/api/team'
+import { FindTeamResult } from 'service/http/api/team'
 import { createAction, createAsyncAction } from 'typesafe-actions'
 
 /**
@@ -33,4 +33,6 @@ export const loadCurrentTeam = createAsyncAction(
 /**
  * 切换当前团队
  */
-export const toggleCurrentTeam = createAction('TOGGLE_CURRENT_TEAM')<Team>()
+export const toggleCurrentTeam = createAction(
+  'TOGGLE_CURRENT_TEAM'
+)<FindTeamResult>()

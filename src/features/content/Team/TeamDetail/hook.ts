@@ -1,5 +1,5 @@
 import Message from 'components/Message'
-import { userInfoSelector } from 'features/header/UserInfo/selector'
+import { userInfoSelector } from 'store/user/selector'
 import { Dispatch, useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useRouteMatch } from 'react-router-dom'
@@ -13,7 +13,7 @@ import { TeamsType } from '../TeamLeftNav/LeftNavTeamList'
 import { toggleCurrentTeamThunk } from './thunk'
 import PubSub from 'pubsub-js'
 import { RELOAD_TEAMS } from '../pubsub-token'
-import { loadCurrentTeamThunk } from 'features/header/UserInfo/thunk'
+import { loadCurrentTeamThunk, loadUserInfoThunk } from 'store/user/thunk'
 
 export interface TeamMemberVo {
   /**
@@ -160,7 +160,6 @@ export const useToggleCurrentTeam = (team: Team | null) => {
   const handleToggleCurrentTeam = async () => {
     if (team) {
       dispatch(toggleCurrentTeamThunk(team))
-      dispatch(loadCurrentTeamThunk(team.id))
     }
     close()
   }
@@ -185,6 +184,8 @@ export const useOfficialCubicleManage = (
   loadTeamMembers: (teamId: string) => Promise<void>
 ) => {
   const userInfo = useSelector(userInfoSelector)
+  const dispatch = useDispatch()
+
   /**
    * 切换角色
    *
@@ -211,6 +212,10 @@ export const useOfficialCubicleManage = (
             closable: true,
           })
         }
+
+        if (teamId === userInfo.currentTeamId) {
+          dispatch(loadCurrentTeamThunk(teamId))
+        }
       }
 
       return true
@@ -232,6 +237,10 @@ export const useOfficialCubicleManage = (
       await loadTeamMembers(teamId)
     }
 
+    if (teamId === userInfo.currentTeamId) {
+      dispatch(loadUserInfoThunk())
+    }
+
     return true
   }
 
@@ -246,6 +255,10 @@ export const useOfficialCubicleManage = (
     if (isReportError(result)) return false
     if (!isResponseError(result)) {
       loadTeamMembers(teamId)
+
+      if (teamId === userInfo.currentTeamId) {
+        dispatch(loadCurrentTeamThunk(teamId))
+      }
     }
     return true
   }

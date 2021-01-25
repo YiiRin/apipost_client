@@ -1,11 +1,11 @@
-import { toggleAuthStatus } from 'features/auth/action'
-import { removeAuthData } from 'features/auth/auth'
+import { toggleAuthStatus } from 'store/auth/action'
+import { removeAuthData } from 'store/auth/auth'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { useBaseConfirm } from 'service/hook/common/useBaseConfirm'
 import { authApis } from 'service/http/api'
 import { isResponseError } from 'service/http/api/type'
-import { removeUserInfo } from '../action'
+import { removeUserInfo } from '../../../../store/user/action'
 
 export const useLogout = () => {
   const { close, open, ...rest } = useBaseConfirm()
@@ -22,6 +22,7 @@ export const useLogout = () => {
     removeAuthData()
     dispatch(toggleAuthStatus(false))
     dispatch(removeUserInfo())
+  
     history.replace('/auth/login')
   }
 
