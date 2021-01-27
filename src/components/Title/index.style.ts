@@ -1,40 +1,30 @@
 import styled from 'styled-components'
 
-interface Props {
-  top?: string
-  left?: string
-  right?: string
-  bottom?: string
-  visible: boolean
-}
-
-
-export const Container = styled.div<Props>`
+export const Container = styled.div`
   position: absolute;
-  ${({top}) => top && `top: ${top};`}
-  ${({left}) => left && `left: ${left};`}
-  ${({right}) => right && `right: ${right};`}
-  ${({bottom}) => bottom && `bottom: ${bottom};`}
-  display: ${({visible}) => visible? 'block' : 'none'};
-`
-
-export const Text = styled.div`
-  position: absolute;
-  width: 60px;
-  text-align: center;
-  padding: .1em;
-  font-size: 12px;
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%);
   border-radius: 4px;
+  display: none;
+  font-size: 12px;
+  color: #fefefe;
   background-color: #191919;
-  color: #fefefe;;
-`
+  padding: 0 0.5em;
+  text-align: center;
+  height: 20px;
+  line-height: 20px;
+  white-space: nowrap;
 
-export const Triangle = styled.div`
-  position: absolute;
-  top: 19px;
-  left: 24px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-top-color: #191919;
+  &::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #191919;
+  }
 `

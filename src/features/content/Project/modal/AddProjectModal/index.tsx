@@ -1,17 +1,30 @@
 import Modal from 'components/Modal'
-import { ModalContentContainer } from './index.style'
+import { ModalContentContainer } from '../index.style'
 import { userInfoSelector } from 'store/user/selector'
 import React from 'react'
 import Scrollbars from 'react-custom-scrollbars'
 import { FaSave } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
-import { useMembersList } from '../NoProject/hook'
-import MemberItem from './MemberItem'
-type Props = {}
+import { useAddProjectModal } from './hook'
+import MemberItem from '../MemberItem'
+import { useBaseModal } from 'service/hook/auth/useBaseModal'
+import { useAddProjectForm, useMembersList } from '../hook'
 
-const AddProjectModal: React.FC<Readonly<Props>> = (props) => {
+type Props = {
+  modalOptions: ReturnType<typeof useBaseModal>
+}
+
+const AddProjectModal: React.FC<Readonly<Props>> = ({modalOptions}) => {
   const partners = useMembersList()
   const userInfo = useSelector(userInfoSelector)
+  const { memberIds, projectName } = useAddProjectForm()
+  const {
+    close,
+    visible,
+    duration,
+    inProp,
+    handleAddProject,
+  } = useAddProjectModal(projectName.data, memberIds.memberIds, modalOptions)
   return (
     <Modal
       title="新建项目"
@@ -26,6 +39,11 @@ const AddProjectModal: React.FC<Readonly<Props>> = (props) => {
         </>
       }
       cancelText="关闭"
+      onOk={handleAddProject}
+      onCancel={close}
+      visible={visible}
+      inProp={inProp}
+      duration={duration}
     >
       <ModalContentContainer>
         <div className="project-name">
@@ -35,6 +53,8 @@ const AddProjectModal: React.FC<Readonly<Props>> = (props) => {
             placeholder="请输入项目名称"
             name="projectName"
             id="projectName"
+            value={projectName.data}
+            onChange={projectName.onChange}
           />
         </div>
         <div className="partners">
@@ -48,6 +68,8 @@ const AddProjectModal: React.FC<Readonly<Props>> = (props) => {
                   id={partner.teamMemberId}
                   disabled={userInfo.id === partner.userId}
                   defaultChecked={userInfo.id === partner.userId}
+                  value={partner.userId}
+                  onChange={memberIds.onChange}
                 />
               ))}
             </Scrollbars>

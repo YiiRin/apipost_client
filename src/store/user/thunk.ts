@@ -33,8 +33,9 @@ export const loadCurrentTeamThunk = (teamId: string) => {
 /**
  * 加载用户信息
  *
+ * @param isLoadCurrentTeam 是否加载当前团队，默认为 true
  */
-export const loadUserInfoThunk = () => {
+export const loadUserInfoThunk = (isLoadCurrentTeam = true) => {
   return async (dispatch: Dispatch) => {
     dispatch(loadUserInfo.request())
 
@@ -42,15 +43,17 @@ export const loadUserInfoThunk = () => {
       const result = await userApis.getUserInfo()
       if (result.data) {
         dispatch(loadUserInfo.success(result.data))
-        if (!result.data.currentTeamId) {
-          dispatch(
-            toggleCurrentTeam({
-              team: {} as Team,
-              members: [],
-            })
-          )
-        } else {
-          loadCurrentTeamThunk(result.data.currentTeamId)(dispatch)
+        if (isLoadCurrentTeam) {
+          if (!result.data.currentTeamId) {
+            dispatch(
+              toggleCurrentTeam({
+                team: {} as Team,
+                members: [],
+              })
+            )
+          } else {
+            loadCurrentTeamThunk(result.data.currentTeamId)(dispatch)
+          }
         }
       }
     } catch (error) {

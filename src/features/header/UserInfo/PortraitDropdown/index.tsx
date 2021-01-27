@@ -17,12 +17,9 @@ import { useSelector } from 'react-redux'
 import { userInfoSelector } from '../../../../store/user/selector'
 import { getImgUrl } from 'service/utils/get-img-url'
 
-type Props = {
-  visible: boolean
-}
+type Props = {}
 
 const PortraitDropdown: React.FC<Readonly<Props>> = (props) => {
-  const { visible } = props
   const {
     open,
     close,
@@ -37,7 +34,7 @@ const PortraitDropdown: React.FC<Readonly<Props>> = (props) => {
 
   return (
     <>
-      <Container visible={visible}>
+      <Container className="portrait-container">
         <UserInfoContainer>
           <PortraitContainter>
             <img src={avatar ? getImgUrl(avatar) : portrait} alt="portrait" />

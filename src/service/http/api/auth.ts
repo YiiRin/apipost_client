@@ -15,6 +15,7 @@ export interface User {
   avatar: string
   name: string
   currentTeamId: string | null
+  lastEditProjectId: string | null
 }
 
 export interface BaseAuth {

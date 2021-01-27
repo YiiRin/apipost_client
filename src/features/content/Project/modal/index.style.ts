@@ -30,6 +30,8 @@ export const ModalContentContainer = styled.div`
       margin-right: 1.25em;
       margin-bottom: 0;
       line-height: 32px;
+      width: 6em;
+      text-align: right;
     }
     input {
       width: 312px;
@@ -56,6 +58,8 @@ export const ModalContentContainer = styled.div`
     .partners-text {
       margin-right: 1.25em;
       margin-bottom: 0;
+      width: 6em;
+      text-align: right;
     }
 
     .member-container {

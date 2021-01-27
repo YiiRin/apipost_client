@@ -13,12 +13,23 @@ export const Container = styled.section`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  .team-btn {
+    position: relative;
+  }
+  .team-btn:hover .pop-title {
+    display: block;
+  }
 `
 
 export const PortraitContainer = styled.div`
   width: 40px;
   height: 40px;
   margin-right: 14px;
+
+  &:hover .portrait-container {
+    display: block;
+  }
 `
 
 export const Img = styled.img`

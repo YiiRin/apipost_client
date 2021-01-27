@@ -9,10 +9,10 @@ type Props = {
 const MemberItem: React.FC<
   Readonly<Props & InputHTMLAttributes<HTMLInputElement>>
 > = (props) => {
-  const { id = 'member-item', text, ...rest } = props
+  const { id = 'member-item', type = 'checkbox', text, ...rest } = props
   return (
     <Container>
-      <input type="checkbox" id={id} {...rest} />
+      <input type={type} id={id} {...rest} />
       <label htmlFor={id}>{text}</label>
     </Container>
   )

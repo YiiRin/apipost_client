@@ -7,9 +7,9 @@ import {
 import styled from 'styled-components'
 
 const baseZIndex = 800
-export const Container = styled.div<{ visible: boolean }>`
+export const Container = styled.div`
   position: absolute;
-  display: ${({ visible }) => (visible ? 'block' : 'none')};
+  display: none;
   z-index: ${baseZIndex};
   right: 14px;
   top: 45px;

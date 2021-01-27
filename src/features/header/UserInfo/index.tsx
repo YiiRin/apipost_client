@@ -15,8 +15,6 @@ type Props = {}
 
 const UserInfo: React.FC<Readonly<Props>> = (props) => {
   const history = useHistory()
-  const titleShow = useComponentShow()
-  const portraitShow = useComponentShow()
   const { userInfo, currentTeam } = useUserInfo()
   const { name, avatar } = userInfo
   const isLogin = useSelector(isLoginSelector)
@@ -46,26 +44,17 @@ const UserInfo: React.FC<Readonly<Props>> = (props) => {
           <span>{name}</span>
           <Button
             icon={<i className="fa fa-users" aria-hidden="true"></i>}
-            onMouseEnter={titleShow.show}
-            onMouseLeave={titleShow.hide}
             onClick={handleJumpToCurrentTeam}
+            className="team-btn"
           >
             {currentTeam.name ? currentTeam.name : '暂无当前团队'}
+            <Title text={'当前团队'} />
           </Button>
-          <Title
-            text={'当前团队'}
-            top={'-1px'}
-            left={'10px'}
-            visible={titleShow.isShow}
-          />
         </InfoContainer>
       )}
-      <PortraitContainer
-        onMouseEnter={portraitShow.show}
-        onMouseLeave={portraitShow.hide}
-      >
+      <PortraitContainer>
         <Img src={avatar ? getImgUrl(avatar) : portrait} alt="portrait" />
-        <PortraitDropdown visible={portraitShow.isShow} />
+        <PortraitDropdown />
       </PortraitContainer>
     </Container>
   )
