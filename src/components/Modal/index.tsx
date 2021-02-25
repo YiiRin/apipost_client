@@ -55,6 +55,11 @@ type Props = {
   maskClosable?: boolean
 
   /**
+   * 是否使用 content 的默认 padding
+   */
+  useContentPadding?: boolean
+
+  /**
    * 模态框是否可见
    */
   visible?: boolean
@@ -190,6 +195,7 @@ const Modal: React.FC<Readonly<Props>> = (props) => {
     closable,
     inProp: outerInProp,
     duration,
+    useContentPadding = true,
     ...rest
   } = props
   // 点击掩膜是否关闭模态框
@@ -227,7 +233,9 @@ const Modal: React.FC<Readonly<Props>> = (props) => {
                 </span>
               )}
             </ModalTitle>
-            <ModalBody>{!isDestroyBody && children}</ModalBody>
+            <ModalBody useContentPadding={useContentPadding}>
+              {!isDestroyBody && children}
+            </ModalBody>
             <ModalFooter {...rest} />
           </ModalContent>
         )}

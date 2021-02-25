@@ -80,6 +80,11 @@ export const _f0867d_c85e55 = theme('mode', {
   dark: '#C85E55',
 })
 
+export const _f0f9eb_292c2f = theme('mode', {
+  light: '#f0f9eb',
+  dark: '#292c2f',
+})
+
 export const _f1877e_c65d53 = theme('mode', {
   light: '#F1877E',
   dark: '#C65D53',

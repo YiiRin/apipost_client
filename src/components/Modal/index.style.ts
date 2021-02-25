@@ -112,8 +112,8 @@ export const ModalTitle = styled.div`
   }
 `
 
-export const ModalBody = styled.div`
-  padding: 1.25em 5%;
+export const ModalBody = styled.div<{ useContentPadding: boolean }>`
+  ${({ useContentPadding }) => useContentPadding && 'padding: 1.25em 5%;'}
   background-color: ${_fcfcfc_282828};
 `
 
@@ -130,7 +130,6 @@ export const FooterLeftContainer = styled.div`
   display: flex;
   align-items: center;
 `
-
 
 export const FooterBtnContainer = styled.div`
   font-size: 13px;

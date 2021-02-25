@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { themeModeSelector } from 'store/theme/selector'
 import { ThemeProvider } from 'styled-components'
@@ -16,6 +16,12 @@ const Auth = React.lazy(() => import('routes/Auth'))
 const App: React.FC<Readonly<Props>> = (props) => {
   const themeMode = useSelector(themeModeSelector)
   useAutoLogin()
+
+  useEffect(() => {
+    const disableDefaultMenu = (event: any) => event.preventDefault()
+    document.addEventListener('contextmenu', disableDefaultMenu)
+    return () => document.removeEventListener('contextmenu', disableDefaultMenu)
+  }, [])
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyle />
